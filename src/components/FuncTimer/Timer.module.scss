@@ -1,0 +1,7 @@
+@import '../../common/templates.scss';
+
+.container{
+    @extend %flex-column;
+  background-color: darkcyan;
+  color: wheat;
+}

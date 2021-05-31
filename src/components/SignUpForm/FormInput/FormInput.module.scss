@@ -1,0 +1,19 @@
+$validColor: green;
+$invalidColor: red;
+
+.input {
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: 3px solid black;
+}
+
+.validInput {
+  border: 3px solid $validColor;
+}
+
+.invalidInput {
+  border: 3px solid $invalidColor;
+}
+.input:focus {
+  outline: none;
+}
