@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-function TimerDisplay(props) {
+function TimerDisplay (props) {
   const { currentTime } = props;
   return <p>{currentTime}</p>;
 }

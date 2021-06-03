@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-function Controls(props) {
+function Controls (props) {
   const { children } = props;
-  return <div className="controlsContainer">{children}</div>;
+  return <div className='controlsContainer'>{children}</div>;
 }
 
 export default Controls;

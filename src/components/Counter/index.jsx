@@ -1,31 +1,31 @@
-import React, { useState, useEffect } from 'react'
-import style from './counter.modules.scss'
-import Button from './Button'
-import ControlledNumInput from './ControlledNumInput'
-import PropTypes from 'prop-types'
+import React, { useState, useEffect } from 'react';
+import style from './counter.modules.scss';
+import Button from './Button';
+import ControlledNumInput from './ControlledNumInput';
+import PropTypes from 'prop-types';
 
 function Counter (props) {
-  const [counter, setCounter] = useState(0)
-  const [step, setStep] = useState(1)
-  const [isIncrement, setIsIncrement] = useState(true)
-  const [isAutoClick, setIsAutoClick] = useState(false)
-  const [delay, setDelay] = useState(1000)
-  const [clickPerSecond, setClickPerSecond] = useState(1)
-  const [timer, setTimer] = useState(null)
+  const [counter, setCounter] = useState(0);
+  const [step, setStep] = useState(1);
+  const [isIncrement, setIsIncrement] = useState(true);
+  const [isAutoClick, setIsAutoClick] = useState(false);
+  const [delay, setDelay] = useState(1000);
+  const [clickPerSecond, setClickPerSecond] = useState(1);
+  const [timer, setTimer] = useState(null);
 
-  const toggleMode = () => setIsIncrement(!isIncrement)
-  const toggleAutoClick = () => setIsAutoClick(!isAutoClick)
+  const toggleMode = () => setIsIncrement(!isIncrement);
+  const toggleAutoClick = () => setIsAutoClick(!isAutoClick);
 
   const handleCount = () =>
-    isIncrement ? setCounter(counter + step) : setCounter(counter - step)
+    isIncrement ? setCounter(counter + step) : setCounter(counter - step);
 
   const handleChangeDelay = newValue => {
-    setClickPerSecond(newValue)
-    setDelay(1000 / newValue)
-  }
+    setClickPerSecond(newValue);
+    setDelay(1000 / newValue);
+  };
 
   function Step (props) {
-    const { step, setStep } = props
+    const { step, setStep } = props;
     return (
       <>
         <div>Step: {step}</div>
@@ -37,24 +37,24 @@ function Counter (props) {
           max={100}
         />
       </>
-    )
+    );
   }
   Step.defaultProps = {
     step: 1,
-    setStep: () => {}
-  }
+    setStep: () => {},
+  };
 
   useEffect(() => {
     if (isAutoClick) {
-      setTimer(setTimeout(handleCount, delay))
+      setTimer(setTimeout(handleCount, delay));
     }
-  }, [isIncrement, isAutoClick, delay, step, counter])
+  }, [isIncrement, isAutoClick, delay, step, counter]);
 
   useEffect(() => {
-    clearTimeout(timer)
-  }, [isIncrement, delay, step, isAutoClick])
+    clearTimeout(timer);
+  }, [isIncrement, delay, step, isAutoClick]);
 
-  const countButtonCaption = isIncrement ? 'Increment' : 'Decrement'
+  const countButtonCaption = isIncrement ? 'Increment' : 'Decrement';
 
   return (
     <>
@@ -74,7 +74,7 @@ function Counter (props) {
         <Button handler={toggleAutoClick} text='Auto click' />
       </div>
     </>
-  )
+  );
 }
 
-export default Counter
+export default Counter;

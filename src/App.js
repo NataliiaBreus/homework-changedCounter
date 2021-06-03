@@ -1,33 +1,31 @@
-import "./App.css";
-import React, { useState } from "react";
-import SelectedUserList from "./components/SelectedUserList";
-import UserList from "./components/UserList";
-import AlohaDashboard from "./components/AlohaDashboard";
-import Counter from "./components/Counter";
-import Button from "./components/Button";
-
-
+import './App.css';
+import React, { useState } from 'react';
+import SelectedUserList from './components/SelectedUserList';
+import UserList from './components/UserList';
+import AlohaDashboard from './components/AlohaDashboard';
+import Counter from './components/Counter';
+import Button from './components/Button';
 
 const usersDB = [
   {
     id: 1,
-    firstname: "John",
-    lastname: "Smith",
+    firstname: 'John',
+    lastname: 'Smith',
   },
   {
     id: 2,
-    firstname: "Bob",
-    lastname: "Brown",
+    firstname: 'Bob',
+    lastname: 'Brown',
   },
   {
     id: 3,
-    firstname: "Sara",
-    lastname: "Smith",
+    firstname: 'Sara',
+    lastname: 'Smith',
   },
   {
     id: 4,
-    firstname: "Mary",
-    lastname: "Black",
+    firstname: 'Mary',
+    lastname: 'Black',
   },
 ];
 
@@ -35,8 +33,8 @@ const usersDB = [
   Перепишите Aloha, App как функциональные компоненты
 */
 
-function App(props) {
-  const defaultUsers = usersDB.map((user) => ({
+function App (props) {
+  const defaultUsers = usersDB.map(user => ({
     ...user,
     isSelected: false,
   }));
@@ -50,12 +48,11 @@ function App(props) {
         <SelectedUserList users={users} />
       </header>
       <main>
-      <Button/>
+        <Button />
         <AlohaDashboard />
         <button onClick={hideHandler}>Hide</button>
         <UserList users={users} setUsers={setUsers} />
-        <Counter/>
-        
+        <Counter />
       </main>
     </>
   );

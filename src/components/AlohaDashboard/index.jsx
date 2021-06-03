@@ -1,44 +1,44 @@
-import { Component } from "react";
-import SortedAlohaList from "./SortedAlohaList";
-import SignUpForm from "../SignUpForm"
+import { Component } from 'react';
+import SortedAlohaList from './SortedAlohaList';
+import SignUpForm from '../SignUpForm';
 
 class AlohaDashboard extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       users: [
         {
           id: 1,
-          firstname: "John",
-          lastname: "Smith",
+          firstname: 'John',
+          lastname: 'Smith',
         },
         {
           id: 2,
-          firstname: "Bob",
-          lastname: "Brown",
+          firstname: 'Bob',
+          lastname: 'Brown',
         },
         {
           id: 3,
-          firstname: "Sara",
-          lastname: "Smith",
+          firstname: 'Sara',
+          lastname: 'Smith',
         },
         {
           id: 4,
-          firstname: "Mary",
-          lastname: "Black",
+          firstname: 'Mary',
+          lastname: 'Black',
         },
       ],
     };
   }
 
-  setUsers = (users) => {
+  setUsers = users => {
     this.setState({
       users,
     });
   };
-  
-  registerUser = (user) => {
-    const {users} = this.state
+
+  registerUser = user => {
+    const { users } = this.state;
     const newUsersArray = [...users];
     const lastId = newUsersArray.reduce(
       (acc, cur) => (cur.id > acc ? cur.id : acc),
@@ -48,7 +48,7 @@ class AlohaDashboard extends Component {
     this.setUsers(newUsersArray);
   };
 
-  render() {
+  render () {
     const { users } = this.state;
     return (
       <>

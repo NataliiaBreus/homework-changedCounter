@@ -1,32 +1,32 @@
-import React, { Component } from "react";
-import Button from "../Button";
-import Controls from "./Controls";
-import TimerDisplay from "./TimerDisplay";
+import React, { Component } from 'react';
+import Button from '../Button';
+import Controls from './Controls';
+import TimerDisplay from './TimerDisplay';
 import style from './Timer.module.scss';
 
 class Timer extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       isRunning: false,
       startTime: null,
       diff: null,
-      currentTime: "00:00:00.000",
+      currentTime: '00:00:00.000',
       startButton: {
-        caption: "Start",
+        caption: 'Start',
         isHidden: false,
         handler: this.start,
       },
       pauseButton: {
-        caption: "Pause",
+        caption: 'Pause',
         isHidden: true,
         handler: this.pause,
       },
     };
   }
 
-  msToTime(duration = 0) {
-    const getCorrectTimeString = (v) => (v < 10 ? `0${v}` : v);
+  msToTime (duration = 0) {
+    const getCorrectTimeString = v => (v < 10 ? `0${v}` : v);
 
     const seconds = getCorrectTimeString(((duration / 1000) % 60).toFixed(3));
     const minutes = getCorrectTimeString(
@@ -52,12 +52,12 @@ class Timer extends Component {
       isRunning: true,
       startTime: Date.now(),
       startButton: {
-        caption: "Reset",
+        caption: 'Reset',
         isHidden: false,
         handler: this.reset,
       },
       pauseButton: {
-        caption: "Pause",
+        caption: 'Pause',
         isHidden: false,
         handler: this.pause,
       },
@@ -71,7 +71,7 @@ class Timer extends Component {
       isRunning: false,
       diff: Date.now() - startTime,
       pauseButton: {
-        caption: "Resume",
+        caption: 'Resume',
         isHidden: false,
         handler: this.resume,
       },
@@ -85,12 +85,12 @@ class Timer extends Component {
       startTime: null,
       diff: null,
       startButton: {
-        caption: "Start",
+        caption: 'Start',
         isHidden: false,
         handler: this.start,
       },
       pauseButton: {
-        caption: "Pause",
+        caption: 'Pause',
         isHidden: true,
         handler: this.pause,
       },
@@ -103,15 +103,15 @@ class Timer extends Component {
       isRunning: true,
       startTime: Date.now() - diff,
       pauseButton: {
-        caption: "Pause",
+        caption: 'Pause',
         isHidden: false,
         handler: this.pause,
       },
     });
     setTimeout(this.tick, 10);
   };
-  render() {
-    const { name = "Timer" } = this.props;
+  render () {
+    const { name = 'Timer' } = this.props;
     const { currentTime, startButton, pauseButton } = this.state;
     return (
       <article className={style.container}>

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import UserCard from "./UserCard";
+import React, { Component } from 'react';
+import UserCard from './UserCard';
 import style from './UserList.module.scss';
 
 class UserList extends Component {
@@ -12,17 +12,17 @@ class UserList extends Component {
   componentWillUnmount() {
     console.log("Will unmount");
   }*/
-  toggleUserSelection = (id) => {
+  toggleUserSelection = id => {
     const { users, setUsers } = this.props;
 
     setUsers(
-      users.map((user) => ({
+      users.map(user => ({
         ...user,
         isSelected: user.id === id ? !user.isSelected : user.isSelected,
       }))
     );
   };
-  mapUser = (user) => {
+  mapUser = user => {
     return (
       <UserCard
         key={user.id}
@@ -31,7 +31,7 @@ class UserList extends Component {
       />
     );
   };
-  render() {
+  render () {
     const { users } = this.props;
     return (
       <section className={style.container}>

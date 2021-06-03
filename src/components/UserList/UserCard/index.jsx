@@ -1,11 +1,11 @@
-function UserCard(props) {
+function UserCard (props) {
   const {
     user: { id, firstname, lastname, isSelected },
     toggleUserSelection,
   } = props;
   const style = {
-    border: isSelected ? "5px solid black" : undefined,
-    color: isSelected ? "green" : "gray",
+    border: isSelected ? '5px solid black' : undefined,
+    color: isSelected ? 'green' : 'gray',
   };
   return (
     <article

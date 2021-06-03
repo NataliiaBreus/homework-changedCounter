@@ -1,12 +1,14 @@
-import React from "react";
-import style from "./Button.module.scss";
+import React from 'react';
+import style from './Button.module.scss';
 import PropTypes from 'prop-types';
 
-function Button(props) {
+function Button (props) {
   const { handler, text } = props;
   return (
-    <button className={style.button} onClick={handler}>{text}</button>
-    );
+    <button className={style.button} onClick={handler}>
+      {text}
+    </button>
+  );
 }
 
 Button.propTypes = {
