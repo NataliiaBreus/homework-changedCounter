@@ -53,6 +53,7 @@ function App (props) {
         <button onClick={hideHandler}>Hide</button>
         <UserList users={users} setUsers={setUsers} />
         <Counter />
+        <UserLoader/>
       </main>
     </>
   );
