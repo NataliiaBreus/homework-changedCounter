@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import style from './counter.modules.scss';
+import style from './counter.module.scss';
 import Button from './Button';
 import ControlledNumInput from './ControlledNumInput';
 import PropTypes from 'prop-types';
@@ -58,21 +58,27 @@ function Counter (props) {
 
   return (
     <>
-      <div className={style.counter}>Counter:{counter}</div>
-      <Step step={step} setStep={setStep} />
-      <ControlledNumInput
+    <div className={style.container}>
+    <div className={style.counter}>Counter:{counter}</div>
+    <div className={style.step}>
+    <Step  step={step} setStep={setStep} />
+      <ControlledNumInput 
         caption='Number of click per second'
         value={clickPerSecond}
         setValue={handleChangeDelay}
         min={1}
         max={1000}
       />
+    </div>
+      
       <p>Auto click mode: {isAutoClick ? 'Enabled' : 'Disabled'}</p>
       <div className={style.buttons}>
         <Button handler={toggleMode} text={'Change mode'} />
         <Button handler={handleCount} text={countButtonCaption} />
         <Button handler={toggleAutoClick} text='Auto click' />
       </div>
+    </div>
+     
     </>
   );
 }
